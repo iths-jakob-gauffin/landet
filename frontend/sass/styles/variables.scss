@@ -1,0 +1,60 @@
+$colorPrimary: #55c57a;
+$colorPrimaryLight: #7ed56f;
+$colorPrimaryDark: #28b485;
+
+$colorSecondaryLight: #ffb900;
+$colorSecondaryDark: #ff7730;
+
+$colorTertiaryLight: #2998ff;
+$colorTertiaryDark: #5643fa;
+
+
+$colorWhite: #fff;
+$colorBlack: #000;
+
+$colorGrey-1: #DCDCDC;
+$colorGrey-2: #D3D3D3;
+$colorGrey-3: #C0C0C0;
+$colorGrey-4: #A9A9A9;
+$colorGrey-5: #808080;
+$colorGrey-6: #696969;
+$colorGrey-7: #3b3b3b;
+
+// $colorLandet-White:#EBEEF2;
+// $colorLandet-1: #73241D;
+// $colorLandet-2: #401915;
+$landetGrey-1: rgb(242, 242, 242);
+$landetGrey-2: #D9CCD1;
+
+$landetRed-1: #D96281;
+$landetRed-2: #BF364F;
+$landetRed-3: #A6032F;
+$landetRed-4: #A60321;
+$landetRed-5: #A60311;
+$landetRed-6: #8C031C;
+$landetRed-7: #591225;
+$landetRed-8: #40161D;
+
+
+//font
+$defaultFontSize: 1.6rem;
+
+//Grid
+$gridWidth: 114rem;
+$gutterVertical: 8rem;
+$gutterHorizontal: 6rem;
+
+@mixin bgColorOpacity($color, $opacity) {
+    background-color: rgba($color, $opacity);
+}
+
+//Spacings
+$small: .8rem;
+$medium: 1.2rem;
+$large: 3rem;
+
+$blockMargin: 5rem;
+
+//animations
+
+$transition: .3s ease-in-out;

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags wagtailcore_tags %}
+
+{% block extra_css %}
+    
+{% endblock %}
+
+{% block banner %}
+
+
+{% endblock banner %}
+
+{% block content %}
+<div class="BlogListingsPage">
+    {% image page.page_image fill-1200x400 format-webp as bg_img %}
+    <div class="BlogListingsPage__BackgroundImage" style="background: url('{{bg_img.url}}'); height: 40rem;">
+        <div class="BlogListingsPage__HeadlineWrapper">
+            <h1 class="BlogListingsPage__Headline">{{page.headline}}</h1>   
+            {% if page.subtitle %}
+            <h2 class="BlogListingsPage__Subtitle">{{page.subtitle}}</h2>
+            {% endif %}
+        </div>
+    </div>
+    <div class="BlogListingsPage__CardsWrapper">
+
+        {% for post in blogs %}
+        {% image post.presentation_image fill-420x300 format-webp as img %}
+        <article class="Card">
+            <a class="Card__Link" href="{{post.url}}"></a>
+            <div class="Card__ContentWrapper">
+                <h2 class="Card__Title">{{post.title}}</h2>
+                <h3 class="Card__Description">{{post.description}}</h3>
+                <span class="Card__Author">Skriven av {{post.author}}, den {{post.published}}</span>
+            </div>
+            <div class="Card__Image" style="background: url('{{img.url}}');"></div>
+        </article>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

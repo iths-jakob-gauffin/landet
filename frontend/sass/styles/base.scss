@@ -1,0 +1,39 @@
+@import "./variables.scss";
+@import "./typography.scss";
+
+html {
+    font-size: 10px;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    @include font;
+    box-sizing: border-box;
+    color: $colorGrey-7;
+    background-color: $landetGrey-1;
+}
+
+.Base{
+    padding: 0 15rem;
+    display: flex;
+    flex-direction: column;
+
+    &__Container{
+        padding: 0 20rem;
+    }
+    // min-height: 100vh;
+    
+    &__Content{
+        height: 100%;
+        background-color: white;
+        display: block;
+        padding: 5rem 8rem;
+    }
+}

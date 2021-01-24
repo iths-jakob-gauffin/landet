@@ -1,0 +1,11 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+{% image self.image fill-600x550 as img %}
+<section class="ImageAndText ImageAndText--{{self.image_alignment}}">
+    <figure class="ImageAndText__Figure">
+        <img class="ImageAndText__Image" src="{{img.url}}" alt="{{img.alt}}">
+        <figcaption class="ImageAndText__Figcaption">{{self.caption}}</figcaption>
+    </figure>
+    <div class="ImageAndText__RichText">
+        {{self.text|richtext}}
+    </div>
+</section>

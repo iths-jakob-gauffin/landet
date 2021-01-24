@@ -1,0 +1,15 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:css:watch": "node-sass -o ../home/static/css sass --watch --output-style compressed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

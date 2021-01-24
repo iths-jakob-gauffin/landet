@@ -1,0 +1,59 @@
+{% load static wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Global stylesheets #}
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/landet.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+
+        {% include "includes/header.html" %}
+
+        {% block banner %}{% endblock %}
+        <main class="Base__Container">
+            {% block content %}{% endblock %}
+        </main>
+
+        <div id="modal" class="Modal Modal--Hidden Modal--Z">
+            <figure class="Modal__Figure">
+                <img id="modal_image" src="" alt="" class="Modal__Image">
+                <figcaption id="modal_figcaption" class="Modal__Figcaption">
+                </figcaption>
+                <button id="close" class="Modal__Close"><span class="fas fa-times"></span></button>
+            </figure>
+        </div>
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/landet.js' %}"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

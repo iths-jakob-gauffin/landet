@@ -1,0 +1,50 @@
+@import "../styles/typography.scss";
+@import "../styles/variables.scss";
+
+.HomePage{
+
+    &__Entry{
+        // background-size: cover !important;
+        // background-position: 50% 100% !important;
+        min-height: 80rem;
+        position: relative;
+        background-size: cover !important;
+        background-position: 0% 40% !important;
+        background-repeat: no-repeat;
+
+    }
+
+    &__Container{
+        position: absolute;
+
+        display: flex;
+        flex-direction: column;
+        // align-items: flex-end;
+        justify-content: flex-end;
+        height: 100%;
+        width: 100%;
+        // border: 1px solid red;
+        padding: 5rem 20rem;
+        // @include bgColorOpacity(white, .3);
+    }
+
+    &__ContentWrapper{
+        @include bgColorOpacity($colorGrey-1, 0.8);
+        width: 40%;
+        padding: 2rem 3rem 2.5rem 2rem;
+    }
+
+    &__Title{
+        @include font;
+        @include h1;
+        color: $colorGrey-7;
+        margin-bottom: $small;
+    }
+    
+    &__Subtitle{
+        @include font;
+        @include h1;
+        color: $colorGrey-7;
+        margin-bottom: 2.5rem;
+    }
+}

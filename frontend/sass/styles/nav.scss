@@ -1,0 +1,79 @@
+@import "./typography.scss";
+@import "./variables.scss";
+
+.Header{
+    padding: 0 20rem;
+    background-color: $landetRed-2;
+    background: linear-gradient(to right, $landetRed-2 20%, $landetRed-8 80%);
+
+    &__Nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    &__Logo{
+        @include font;
+        font-size: 3rem;
+        font-weight: 900;
+        color: $landetGrey-1;
+        text-decoration: none;
+    }
+
+    &__NavAndUserWrapper{
+        display: flex;
+    }
+
+    &__NavList{
+        list-style: none;
+        display: flex;
+    }
+
+    &__NavLink{
+        padding: 3rem;
+        @include font;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $landetGrey-1;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-block;
+        transition: all $transition;
+
+        &:hover{
+            background-color: $landetRed-4;
+        }
+    }
+
+    &__UserSpacing{
+        width: 2rem;
+        height: 100%;
+    }
+
+    &__UserWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $landetRed-4;
+        padding: 0 1.5rem 0 3rem;
+        background-color: $landetGrey-1;
+    }
+
+    &__UserLabel{
+        @include label;
+        font-weight: 900;
+        font-size: 1rem;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: -1.2rem;
+        right: 0;
+    }
+
+    &__UserName{
+        position: relative;
+        @include h3;
+        // font-size: 2rem;
+    }
+}

@@ -1,0 +1,46 @@
+@import "../styles/typography.scss";
+@import "../styles/variables.scss";
+
+.GalleryBlock{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $blockMargin;
+
+    &__ImageWrapper{
+        cursor: pointer;
+        padding: 0 2rem 2rem;
+        display: inline-block;
+        flex: 1 1 50%;
+        min-width: 50rem;
+        max-height: 76.8rem;
+    }   
+    &__Image{
+        width: 100%;
+        object-fit: cover !important;
+        display: block;
+    }   
+
+    &__CaptionWrapper{
+        padding: $medium 2rem 3rem;
+        // background: $colorGrey-6;
+        background: $colorGrey-1;
+        transition: all $transition;
+        border-bottom-right-radius: 1rem;
+    }
+    
+    &__ImageWrapper:hover &__CaptionWrapper{
+        background: $landetRed-3;
+    }
+    
+    &__Caption{
+        @include p;
+        font-weight: 700;
+        display: block;
+        transition: all $transition;
+        // color: white;
+    }
+
+    &__ImageWrapper:hover &__Caption{
+        color: white;
+    }
+}

@@ -1,0 +1,41 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landet.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="Auth__Login">
+    <div class="Auth__LoginTitleWrapper">
+        <h1 class="Auth__LoginTitle">{% trans "Skapa konto" %}</h1>
+    </div>
+    <div class="Auth__Inner">
+        <div class="Auth__SignUpFirst">
+            <p class="Auth__Paragraph">{% blocktrans %}Har du redan ett konto? Ja men dåså, då är det bara att <a href="{{ login_url }}">logga in</a>.{% endblocktrans %}</p>
+        </div>
+        <form class="signup Auth__Form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <div class="Auth__ButtonsWrapper">
+
+              <button class="Button Button--Primary" type="submit">
+                  <p class="Button__Text">{% trans "Skapa konto" %}</p>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

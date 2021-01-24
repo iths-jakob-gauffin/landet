@@ -1,0 +1,32 @@
+{% load static menu_tags %}
+{% get_menu "header" as navigation %}
+
+<header class="Header">
+    <nav class="Header__Nav">
+        <a href="/" class="Header__Logo">
+            Småland
+        </a>
+        <div class="Header__NavAndUserWrapper">
+            <ul class="Header__NavList">
+                {% for item in navigation.menu_items.all %}
+                <li class="Header_ListItem">
+                    <a href="{{item.url}}" class="Header__NavLink">{{item.title}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% if request.user.is_authenticated %}
+            <div class="Header__UserSpacing"></div>
+            <div class="Header__UserWrapper">
+                <span class="Header__UserName">
+                    {{request.user.username}}
+                    <span class="Header__UserLabel">
+                        Inloggad
+                    </span>
+                    <a href="{% url 'account_logout' %}">Logga ut</a>
+                </span>
+            </div>
+        </div>
+        {% endif %}
+
+    </nav>
+</header>

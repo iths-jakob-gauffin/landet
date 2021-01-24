@@ -1,0 +1,167 @@
+@import "../styles/typography.scss";
+@import "../styles/variables.scss";
+
+.Auth{
+
+    &__Wrapper{
+        background-size: cover !important;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: -1;
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            @include bgColorOpacity(white, .2)
+            // @include bgColorOpacity(white, .2)
+        }
+    }
+
+    &__Container{
+        width: 100%;
+        height: 100vh;
+        // background-color: green;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        position: relative;
+    }
+
+    &__Login{
+        position: absolute;
+        // background-color: white;
+        @include bgColorOpacity(white, .9);
+        border-radius: 1rem;
+        // overflow: hidden;
+        display: inline-block;
+        top: 10%;
+        left: 20%;
+        box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+        // @include p;
+        // width: 100%;
+        // max-width: 30%;        
+    }
+    
+    &__Inner{
+        padding: 2rem 5rem 5rem 3rem;
+    }
+
+    &__SignUpFirst{
+        margin-bottom: 3rem;
+        max-width: 50rem;
+
+        a{
+            text-decoration: none;
+            color: $landetRed-1;
+            // display: inline-block;
+
+            &:hover{
+                color: $landetRed-4;
+                border-bottom: 2px solid $landetRed-4;
+            }
+        }
+    }
+
+    &__Paragraph{
+        @include p;
+        @include font;
+        font-size: 2rem;
+        // line-height: 2rem;
+    }
+
+    &__LoginTitleWrapper{
+        background-color: $landetRed-2;
+        width: 100%;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        // padding: 0 -5rem;
+    }
+
+    &__LoginTitle{
+        padding: 2rem 3rem ;
+        color: white;
+    }
+
+    &__Form{
+        p{
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+
+            &:nth-of-type(2){
+                margin-bottom: 3rem;                    
+            }
+            // @include font;
+            // font-size: 2.6rem;
+            
+
+            label{
+                margin-bottom: 1rem;
+            }
+
+            input{
+                max-width: 40rem;
+                padding: 1.3rem;
+                border-radius: 1rem;
+                @include p;
+                font-size: 1.6rem;
+                border: 1px solid $colorGrey-6;
+                margin-bottom: 1.2rem;
+                
+            }
+        }
+
+        button{
+            border: none;
+            cursor: pointer;
+            // display: flex;
+        }
+
+        .Button__Text{
+            margin-bottom: 0;
+            
+        }
+
+        a{
+            text-decoration: none;
+            color: $landetRed-1;
+            // display: inline-block;
+
+            &:hover{
+                color: $landetRed-4;
+                border-bottom: 2px solid $landetRed-4;
+            }
+        }
+    }
+
+    &__ResetPassword{
+        // margin-bottom: 7rem;
+        // display: block;
+        // @include font;
+        font-size: 2rem;
+        text-decoration: none;
+        color: $landetRed-1;
+        // display: inline-block;
+
+        &:hover{
+            color: $landetRed-4;
+            border-bottom: 2px solid $landetRed-4;
+        }
+    }
+
+    &__ButtonsWrapper{
+        margin-top: 7rem;
+        display: flex;
+
+        .Button:first-child{
+            margin-right: 1rem;
+        }
+    }
+
+
+}

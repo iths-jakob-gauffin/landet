@@ -1,0 +1,70 @@
+{% extends "account/base.html" %}
+
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}">
+
+{% block extra_head %}
+{% load static %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landet.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign in with one
+of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+
+<div class="Auth__Login">
+    <div class="Auth__LoginTitleWrapper">
+        <h1 class="Auth__LoginTitle">
+            Här loggar du in
+        </h1>
+    </div>
+    <div class="Auth__Inner">
+        <div class="Auth__SignUpFirst">
+            <p class="Auth__Paragraph">{% blocktrans %} För att logga in måste du ha skapat ett konto.  
+            <a href="{{ signup_url }}">Skapa ett konto här.</a> {% endblocktrans %}</p>
+            {% endif %}
+        </div>
+                
+        <form class="login Auth__Form" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <a class="button secondaryAction Auth__ResetPassword" href="{% url 'account_reset_password' %}">{% trans "Glömt lösenordet?" %}</a>
+            <div class="Auth__ButtonsWrapper">
+              <a href="{{signup_url}}" class="primaryAction Button Button--Ghost"><p class="Button__Text">{% trans "Skapa konto" %}</p></a>
+
+              <button class="primaryAction Button Button--Primary" type="submit">
+                  <p class="Button__Text">{% trans "Logga in" %}</p><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

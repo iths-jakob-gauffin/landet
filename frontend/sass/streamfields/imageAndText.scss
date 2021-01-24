@@ -1,0 +1,20 @@
+.ImageAndText{
+    display: flex;
+    margin-bottom: $blockMargin;
+
+    &--Right{
+        flex-direction: row-reverse;
+    }
+
+    p{
+        max-width: 100%;
+    }
+
+    &--Left &__Figure{
+        margin-right: 3rem;
+    }
+    
+    &--Right &__Figure{
+        margin-left: 3rem;
+    }
+}

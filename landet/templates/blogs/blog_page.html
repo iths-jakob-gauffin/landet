@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+<div class="BlogPage">
+    {% image page.page_image fill-1200x350 format-webp as bg_img %}
+    <div class="BlogPage__BackgroundImage" style="background: url('{{bg_img.url}}'); height: 35rem; background-size: cover; background-repeat: no-repeat;">
+        <section class="BlogPage__HeadlineWrapper">
+            <h1 class="BlogPage__Headline">{{page.title}}</h1>
+            <div class="BlogPage__MetaWrapper">
+                <p class="BlogPage__Subtitle">Skriven av: {{page.author}}</p>
+                <p class="BlogPage__PublishedText">Publicerad den <time>{{page.published|date:"j b, Y"}}</time></p>
+            </div>
+            
+        </section>
+    </div>
+    <div class="BlogPage__InnerGrid">
+        <section class="BlogPage__Entry">
+            <div class="BlogPage__EntryTextWrapper">
+                <div class="BlogPage__EntryText">
+                    {{page.start_text|richtext}}
+                </div>
+            </div>
+            {% image page.presentation_image fill-600x450 format-webp as pres_img %}
+            <img class="BlogPage__PresImage" src="{{pres_img.url}}" alt="{{pres_img.alt}}">
+        </section>
+        <section class="BlogPage__StreamField">
+            {% for block in page.body %}
+                {% include_block block %}
+            {% endfor %}
+        </section>
+        <a class="Button Button--Primary Button--Primary Button--Back"  href="/blogg">
+            <p class="Button__Text">Tillbaka till bloggen</p>
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+</div>
+{% endblock content %}

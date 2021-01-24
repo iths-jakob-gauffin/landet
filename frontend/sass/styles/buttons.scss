@@ -1,0 +1,91 @@
+@import "./typography.scss";
+@import "./variables.scss";
+
+.Button{
+    text-decoration: none;
+    padding: 2rem 3rem;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--Back{
+        flex-direction: row-reverse;
+    }
+
+    &__Text{
+        @include font;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $landetGrey-1;
+        font-size: 2rem;
+    }
+
+    &--Primary{
+        background-color: $landetRed-2;
+        border-radius: .6rem;
+        transition: all .3s ease-in-out;
+    }
+    
+    &:hover.Button--Primary{
+        background-color: $landetRed-4;
+    }
+    
+    &--Ghost{
+        border: 2px solid $landetRed-2 !important;
+        background-color: white;
+        color: $landetRed-2;
+        border-radius: .6rem;
+        transition: all .3s ease-in-out;
+        
+        .Button__Text{
+            color: $landetRed-2;
+            transition: all .3s ease-in-out;
+            position: relative;
+            
+            &::after{
+                content: "";
+                height: 2px;
+                width: 100%;
+                background-color: $landetRed-2;
+                bottom: -.4rem;
+                transition: all .3s ease-in-out;
+                opacity: 0;
+            }
+        }
+    }
+    
+    &:hover.Button--Ghost{
+        border: 2px solid $landetRed-4 !important;
+        .Button__Text{
+            color: $landetRed-4;
+            
+            &::after{
+                background-color: $landetRed-4;
+                opacity: 1;
+            }
+            // text-decoration: underline;
+        }
+
+    }
+
+    i{
+        color: $landetGrey-1;
+        font-size: 3rem;
+        margin-left: 4rem;
+        transition: all .3s ease-in-out;
+    }
+    
+    &:hover i{
+        transform: translateX(1.5rem);
+    }
+    
+    &--Back i{
+        margin-left: 0rem;
+        margin-right: 4rem;
+    }
+    
+    &--Back:hover i{
+        transform: translateX(-1.5rem);
+
+    }
+}

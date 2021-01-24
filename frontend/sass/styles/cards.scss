@@ -1,0 +1,67 @@
+.Card{
+    display: flex;
+    position: relative;
+    // border: 1px solid red;
+    justify-content: space-between;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .5);
+    transition: transform $transition;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: $colorGrey-1;
+
+    &:hover{
+        transform: translateY(-1rem);
+        // transform: scale(1.05);
+    }
+
+    &__Link{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    &__Image{
+        // border: 1px solid blue;
+        padding-top: 30rem;
+        // width: 40%;
+        // width: calc(40% + 3rem);
+        // width: 100%;
+        flex: 1 1 40%;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+
+    &__ContentWrapper{
+        display: flex;
+        flex-direction: column;
+        padding: 3rem;
+        // width: calc(60% + 3rem);
+        flex: 1 1 60%;
+        // border: 1px solid red;
+        position: relative;
+    }
+
+    &__Title{
+        @include h2;
+        margin-bottom: $medium;
+    }
+
+    &__Description{
+        @include h3;
+    }
+
+    &__Author{
+        @include label;
+        // margin-bottom: 2rem;
+        position: absolute;
+        bottom: 4rem;
+        left: 3rem;
+        // align-self: flex-end;
+        // border-bottom: 1px solid $landetRed-1;
+        // display: inline-flex;
+    }
+}

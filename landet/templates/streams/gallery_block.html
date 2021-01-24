@@ -1,0 +1,14 @@
+{% load wagtailimages_tags %}
+<div class="GalleryBlock">
+    {% for grej in self.gallery %}
+    {% image grej.image max-1024x768 as img %}
+    <div class="GalleryBlock__ImageWrapper">
+        
+            <img class="GalleryBlock__Image" src="{{img.url}}" alt="">
+            <div class="GalleryBlock__CaptionWrapper">
+                <figcaption class="GalleryBlock__Caption">{{grej.title}}</figcaption>
+            </div>
+        
+    </div>
+    {% endfor %}
+</div>
