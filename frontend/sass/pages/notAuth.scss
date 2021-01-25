@@ -1,0 +1,27 @@
+@import "../styles/typography.scss";
+@import "../styles/variables.scss";
+
+.NotAuth{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    &__Title{
+        @include h1;
+    }
+    &__ToLoginLink{
+        @include h1;
+        color: $landetRed-2;
+        text-decoration: none;
+        display: block;
+        
+        &:hover{
+            color: $landetRed-4;
+            border-bottom: 2px solid $landetRed-4;
+        }
+    }
+
+}

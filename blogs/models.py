@@ -47,7 +47,8 @@ class BlogListingsPage(Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
-        context['blogs'] = BlogPage.objects.live().public()
+        context['blogs'] = BlogPage.objects.live().public().order_by('-published')
+        # print("lite text på också: ", context['blogs'][0].published)
         return context
 
 class BlogPage(Page):

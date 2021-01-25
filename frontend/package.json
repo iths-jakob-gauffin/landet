@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:css:watch": "node-sass -o ../home/static/css sass --watch --output-style compressed"
+    "watch": "node-sass -o ../home/static/css sass --watch --output-style compressed"
   },
   "keywords": [],
   "author": "",

@@ -58,13 +58,13 @@
     }
 
     &__InnerGrid{
-        padding: 0rem 5rem 5rem;
+        padding: 0rem 5rem 10rem;
     }
 
     &__Entry{
         display: flex;
         justify-content: space-between;
-        margin-bottom: $blockMargin;
+        margin-bottom: $medium;
     }
 
     &__EntryTextWrapper{
@@ -91,9 +91,9 @@
             margin-bottom: 1.6rem;
             max-width: 80%;
             
-            &:last-of-type{
-                margin-bottom: $blockMargin;
-            }
+            // &:last-of-type{
+            //     margin-bottom: $blockMargin;
+            // }
         }
 
         h1,h2,h3,h4{

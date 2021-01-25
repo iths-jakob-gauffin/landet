@@ -1,0 +1,1 @@
+.NotAuth{display:flex;flex-direction:column;width:100%;height:100vh;justify-content:center;align-items:center}.NotAuth__Title{font-weight:700;font-size:4rem}.NotAuth__ToLoginLink{font-weight:700;font-size:4rem;color:#BF364F;text-decoration:none;display:block}.NotAuth__ToLoginLink:hover{color:#A60321;border-bottom:2px solid #A60321}

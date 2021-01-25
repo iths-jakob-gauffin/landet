@@ -1,13 +1,16 @@
+@import "../styles/variables.scss";
+@import "../styles/typography.scss";
+
 .Card{
     display: flex;
     position: relative;
-    // border: 1px solid red;
     justify-content: space-between;
     box-shadow: 5px 5px 10px rgba(0,0,0, .5);
     transition: transform $transition;
     border-radius: 1rem;
     overflow: hidden;
     background-color: $colorGrey-1;
+    margin-bottom: $large * 2; 
 
     &:hover{
         transform: translateY(-1rem);

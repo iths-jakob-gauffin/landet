@@ -1,5 +1,6 @@
 const galleryBlocks = document.querySelectorAll(".GalleryBlock__ImageWrapper");
 const modal = document.getElementById("modal");
+console.log("🚀 ~ file: landet.js ~ line 3 ~ modal", modal)
 
 let arr = [];
 let obj = {};
