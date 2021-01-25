@@ -4,7 +4,7 @@
 .GalleryBlock{
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: $blockMargin;
+    margin: $blockMargin 0;
 
     &__ImageWrapper{
         cursor: pointer;

@@ -33,24 +33,33 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% include "includes/header.html" %}
+        {% if request.user.is_authenticated %}
+            {% include "includes/header.html" %}
 
-        {% block banner %}{% endblock %}
-        <main class="Base__Container">
-            {% block content %}{% endblock %}
-        </main>
+            {% block banner %}{% endblock %}
+            <main class="Base__Container">
+                {% block content %}{% endblock %}
+            </main>
 
-        <div id="modal" class="Modal Modal--Hidden Modal--Z">
-            <figure class="Modal__Figure">
-                <img id="modal_image" src="" alt="" class="Modal__Image">
-                <figcaption id="modal_figcaption" class="Modal__Figcaption">
-                </figcaption>
-                <button id="close" class="Modal__Close"><span class="fas fa-times"></span></button>
-            </figure>
-        </div>
+            <div id="modal" class="Modal Modal--Hidden Modal--Z">
+                <figure class="Modal__Figure">
+                    <img id="modal_image" src="" alt="" class="Modal__Image">
+                    <figcaption id="modal_figcaption" class="Modal__Figcaption">
+                    </figcaption>
+                    <button id="close" class="Modal__Close"><span class="fas fa-times"></span></button>
+                </figure>
+            </div>
+        {% else %}
+            <main class="NotAuth">
+                <h1 class="NotAuth__Title">Du måste vara inloggad för att se den här sidan.</h1>
+                <a class="NotAuth__ToLoginLink" href="{% url 'account_login' %}">Logga in här</a>
+            </main>
+        {% endif %}
 
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/landet.js' %}"></script>
+        {% if request.user.is_authenticated %}
+            {# Global javascript #}
+            <script type="text/javascript" src="{% static 'js/landet.js' %}"></script>
+        {% endif %}
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

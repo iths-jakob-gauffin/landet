@@ -6,11 +6,15 @@
 <div class="HomePage__Entry" style="background: url('{{ bg_img.url }}');">
     <div class="HomePage__Container">
         <div class="HomePage__ContentWrapper">
-            <!-- <h1 class="HomePage__Title" >{{page.title}}</h1> -->
-            <h2 class="HomePage__Subtitle" >{{page.lead_text}}</h2>
+            <h1 class="HomePage__Title" >Välkommen {{request.user.username}}!</h1>
+            <!-- <h2 class="HomePage__Subtitle" >{{page.lead_text}}</h2> -->
             <a class="Button Button--Primary"  href="{{page.button.url}}">
                 <p class="Button__Text">{{page.button_text}}</p>
                 <i class="fas fa-arrow-right"></i>
+            </a>
+            <a class="Button Button--Primary"  href="/admin/pages/add/blogs/blogpage/4/">
+                <p class="Button__Text">Skriv blogginlägg</p>
+                <i class="far fa-edit"></i>
             </a>
         </div>
     </div>

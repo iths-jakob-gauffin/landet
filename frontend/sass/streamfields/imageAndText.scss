@@ -1,6 +1,5 @@
 .ImageAndText{
     display: flex;
-    margin-bottom: $blockMargin;
 
     &--Right{
         flex-direction: row-reverse;
@@ -16,5 +15,9 @@
     
     &--Right &__Figure{
         margin-left: 3rem;
+    }
+
+    &__Figcaption{
+        margin-bottom: $blockMargin;
     }
 }
