@@ -31,7 +31,6 @@
     &__ContentWrapper{
         @include bgColorOpacity($colorGrey-1, 0.8);
         width: 40%;
-        // margin-top: ;
         padding: 2rem 3rem 2.5rem 2rem;
 
         .Button:not(:last-child){
