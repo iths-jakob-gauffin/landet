@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags wagtailcore_tags %}
+
+{% block extra_css %}
+    
+{% endblock %}
+
+{% block banner %}
+
+
+{% endblock banner %}
+
+{% block content %}
+<h1>detta är boardlistingspage.html</h1>
+  <ul>
+    {% for board in boards %}
+      <li>title: {{board.title}}</li>
+      <!-- <li>author: {{board.author}}</li> -->
+      <li>published: {{board.published}}</li>
+      <li>owner: {{board.owner}}</li>
+      <li>firstpublishedat: {{board.first_published_at}}</li>
+    {% endfor %}
+  </ul>
+
+{% endblock content %}

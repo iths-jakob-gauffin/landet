@@ -23,19 +23,52 @@
     </div>
     <div class="BlogListingsPage__CardsWrapper">
 
-        {% for post in blogs %}
+        {% for post in posts %}
         {% image post.presentation_image fill-420x300 format-webp as img %}
         <article class="Card">
             <a class="Card__Link" href="{{post.url}}"></a>
             <div class="Card__ContentWrapper">
                 <h2 class="Card__Title">{{post.title}}</h2>
                 <h3 class="Card__Description">{{post.description}}</h3>
-                <span class="Card__Author">Skriven av {{post.author}}, den {{post.published}}</span>
+                <span class="Card__Author">Skriven av {{post.owner}}, den {{post.published}}</span>
             </div>
             <div class="Card__Image" style="background: url('{{img.url}}');"></div>
         </article>
         {% endfor %}
 
     </div>
+    {% if posts.paginator.num_pages > 1 %}
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="pagination">
+            {% if posts.has_previous %}
+              <li class="page-item">
+                <a href="?page={{ posts.previous_page_number }}" class="page-link">
+                  <span>&laquo;</span>
+                </a>
+              </li>
+            {% endif %}
+
+            {% for page_num in posts.paginator.page_range %}
+              <li class="page-item {% if page_num == posts.number %} active{% endif %}">
+                <a href="?page={{ page_num }}" class="page-link">
+                  {{ page_num }}
+                </a>
+              </li>
+            {% endfor %}
+
+            {% if posts.has_next %}
+              <li class="page-item">
+                <a href="?page={{ posts.next_page_number }}" class="page-link">
+                  <span>&raquo;</span>
+                </a>
+              </li>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
 </div>
 {% endblock content %}

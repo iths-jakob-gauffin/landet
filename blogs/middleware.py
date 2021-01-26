@@ -2,7 +2,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 class AuthRequiredMiddleware(object):
-    print("OKIDOKILOKI")
 
     def __init__(self, get_response):
         self.get_response = get_response
