@@ -4,7 +4,7 @@
 <header class="Header">
     <nav class="Header__Nav">
         <a href="/" class="Header__Logo">
-            Småland
+            <img src="{% static '/icons/logo_white.svg' %}" alt="">
         </a>
         <div class="Header__NavAndUserWrapper">
             <ul class="Header__NavList">
@@ -16,14 +16,17 @@
             </ul>
             {% if request.user.is_authenticated %}
             <div class="Header__UserSpacing"></div>
+            <div class="Header__UserIcon">
+                <i class="fas fa-house-user"></i>
+            </div>
             <div class="Header__UserWrapper">
-                <span class="Header__UserName">
-                    {{request.user.username}}
-                    <span class="Header__UserLabel">
-                        Inloggad
-                    </span>
-                    <a href="{% url 'account_logout' %}">Logga ut</a>
-                </span>
+                <div class="Header__UserName">
+                    Inloggad som <strong>{{request.user.username}}</strong>
+                </div>
+                <!-- <div class="Header__UserLabel">
+                    Inloggad
+                </div> -->
+                <a class="Header__UserLogout Button Button--Primary Button--Small" href="{% url 'account_logout' %}">Logga ut <i class="fas fa-door-open"></i></a>
             </div>
         </div>
         {% endif %}

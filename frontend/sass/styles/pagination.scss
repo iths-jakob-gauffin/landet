@@ -1,0 +1,56 @@
+@import "./variables.scss";
+
+.Pagination{
+    width: 100%;
+
+    &__Wrapper{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        list-style: none;
+    }
+
+    &__PageItem{
+        @include h2;
+        color: $landetRed-2;
+        font-weight: 700;
+        padding: 2rem;
+        
+        &:not(:last-of-type){
+            margin-right: 3rem;
+        }
+
+        &--Active{
+            color: $colorWhite;
+            position: relative;
+
+            
+            &::after{
+                content: "";
+                position: absolute;
+                z-index: -1;
+                background-color: $landetRed-2;
+                top: 50%;
+                left: 50%;
+                width: 5rem;
+                height: 5rem;
+                transform: translate(-53%, -50%);
+                border-radius: 50%;
+            }
+            // background-color: $landetRed-2;
+            // border-radius: 50%;
+        }
+    }
+    
+    &__PageLink{
+        color: $landetRed-2;
+        @include h2;
+        font-weight: 700;
+        text-decoration: none;
+
+        i{
+            font-size: 3rem;
+        }
+    }
+
+}

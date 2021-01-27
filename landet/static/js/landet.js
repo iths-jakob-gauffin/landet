@@ -26,7 +26,6 @@ galleryBlocks.forEach((image) => {
 
         const imageHolder = document.getElementById("modal_image");
 
-        
         let img = e.target.closest(".GalleryBlock__ImageWrapper").querySelector("img");
         
         const url = img.getAttribute("src");

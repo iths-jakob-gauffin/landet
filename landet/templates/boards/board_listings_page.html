@@ -11,15 +11,86 @@
 {% endblock banner %}
 
 {% block content %}
-<h1>detta är boardlistingspage.html</h1>
-  <ul>
-    {% for board in boards %}
-      <li>title: {{board.title}}</li>
-      <!-- <li>author: {{board.author}}</li> -->
-      <li>published: {{board.published}}</li>
-      <li>owner: {{board.owner}}</li>
-      <li>firstpublishedat: {{board.first_published_at}}</li>
-    {% endfor %}
-  </ul>
+<div class="BoardListingsPage">
+    {% image page.page_image fill-1200x400 format-webp as bg_img %}
+    <div class="BoardListingsPage__BackgroundImage" style="background: url('{{bg_img.url}}'); height: 40rem;">
+        <div class="BoardListingsPage__BackgroundImageContentWrapper">
+            <div class="BoardListingsPage__HeadlineWrapper">
+                <h1 class="BoardListingsPage__Headline">{{page.headline}}</h1>   
+                {% if page.subtitle %}
+                <h2 class="BoardListingsPage__Subtitle">{{page.subtitle}}</h2>
+                {% endif %}
+            </div>
+            <div class="BoardListingsPage__ButtonsWrapper">
+                <a class="BoardListingsPage__Button Button Button--Primary Button--Small"  href="/admin/pages/add/boards/boardpage/6/">
+                    
+                    <p class="Button__Text Button__Text--Small">Skriv ett inlägg</p>
+                        <i class="far fa-file-alt"></i>
+                </a>
+                <a class="BoardListingsPage__Button Button Button--Primary Button--Small"  href="/admin/pages/6/">
+                    <p class="Button__Text Button__Text--Small">Redigera tidigare inlägg</p>
+                    <i class="far fa-edit"></i>
+                </a>
+                <a class="BoardListingsPage__Button Button Button--Primary Button--Small"  href="#">
+                    <p class="Button__Text Button__Text--Small">Lär dig skriva inlägg</p>
+                    <i class="fas fa-question"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="BoardListingsPage__CardsWrapper">
 
+        {% for post in posts %}
+        {% image post.presentation_image fill-420x300 format-webp as img %}
+        <article class="Card">
+            <a class="Card__Link" href="{{post.url}}"></a>
+            <div class="Card__ContentWrapper">
+                <h2 class="Card__Title">{{post.title}}</h2>
+                <h3 class="Card__Description">{{post.description}}</h3>
+                <span class="Card__Author">Skriven av {{post.owner}}, den {{post.published}}</span>
+            </div>
+            <div class="Card__Image" style="background: url('{{img.url}}');"></div>
+        </article>
+        {% endfor %}
+
+    </div>
+    {% if posts.paginator.num_pages > 1 %}
+    <div class="Pagination">
+        
+      <ul class="Pagination__Wrapper">
+
+            {% if posts.has_previous %}
+              <li class="Pagination__PageItem">
+                <a href="?page={{ posts.previous_page_number }}" class="Pagination__PageLink">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+              </li>
+            {% endif %}
+
+            {% for page_num in posts.paginator.page_range %}
+                {% if page_num == posts.number %}
+                <li class="Pagination__PageItem Pagination__PageItem--Active">
+                        {{ page_num }}
+                </li>
+                {% else %}
+                <li class="Pagination__PageItem">
+                    <a href="?page={{ page_num }}" class="Pagination__PageLink">
+                        {{ page_num }}
+                    </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+
+            {% if posts.has_next %}
+              <li class="Pagination__PageItem">
+                <a href="?page={{ posts.next_page_number }}" class="Pagination__PageLink">
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+              </li>
+            {% endif %}
+
+      </ul>
+    </div>
+  {% endif %}
+</div>
 {% endblock content %}

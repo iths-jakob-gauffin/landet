@@ -22,6 +22,13 @@ class BoardListingsPage(Page):
       default="Anslagstavlan"
     )
 
+    subtitle = models.TextField(
+        max_length=500,
+        null=True,
+        blank=True,
+        help_text="En kort beskrivning av vad för typ av information man kan sätta upp på anslagstavlan"
+    )
+
     page_image = models.ForeignKey(
         'wagtailimages.Image',
         related_name="+",
@@ -33,6 +40,7 @@ class BoardListingsPage(Page):
 
     content_panels = Page.content_panels + [
       FieldPanel("headline"),
+      FieldPanel("subtitle"),
       ImageChooserPanel("page_image")
     ]
 

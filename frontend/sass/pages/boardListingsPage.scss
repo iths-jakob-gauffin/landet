@@ -1,11 +1,12 @@
 @import "../styles/typography.scss";
 @import "../styles/variables.scss";
 
-.BlogListingsPage{
+.BoardListingsPage{
 
     &__BackgroundImage{
         margin: 0 -20rem;
         background-size: cover !important;
+        // background-position: 0% 100% !important;
         position: relative;
         z-index: 0;
         display: flex;
@@ -51,7 +52,6 @@
     &__Subtitle{
         @include font;
         @include h3;
-        // font-size: 1.5rem;
     }
 
     &__ButtonsWrapper{

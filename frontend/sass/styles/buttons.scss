@@ -8,6 +8,10 @@
     justify-content: space-between;
     align-items: center;
 
+    &--Small{
+        padding: 1.5rem 2rem;
+    }
+
     &--Back{
         flex-direction: row-reverse;
     }
@@ -18,6 +22,15 @@
         text-transform: uppercase;
         color: $landetGrey-1;
         font-size: 2rem;
+        
+        &--Small{
+            font-size: 1.7rem;
+
+            &+i{
+                font-size: 2.5rem !important;
+                margin-left:3rem !important;
+            }
+        }
     }
 
     &--Primary{
@@ -25,6 +38,8 @@
         border-radius: .6rem;
         transition: all .3s ease-in-out;
     }
+
+
     
     &:hover.Button--Primary{
         background-color: $landetRed-4;
@@ -78,6 +93,10 @@
     &:hover i{
         transform: translateX(1.5rem);
     }
+
+    &--Small:hover i{
+        transform: translateX(0);
+    }
     
     &--Back i{
         margin-left: 0rem;
@@ -87,5 +106,11 @@
     &--Back:hover i{
         transform: translateX(-1.5rem);
 
+    }
+
+    &__IconWrapper{
+        width: 3rem;
+        height: 3rem;
+        border: 1px solid white;
     }
 }

@@ -23,6 +23,7 @@
 
     &__NavAndUserWrapper{
         display: flex;
+        position: relative;
     }
 
     &__NavList{
@@ -51,29 +52,75 @@
         height: 100%;
     }
 
+    &__UserIcon{
+        font-size: 3.5rem;
+        color: $colorWhite;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover+.Header__UserWrapper{
+            opacity: 1;
+        }
+    }
+
     &__UserWrapper{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 1000;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
-        color: $landetRed-4;
-        padding: 0 1.5rem 0 3rem;
+        // color: $landetRed-4;
+        // color: ;
+        padding: 1rem 1.5rem 2rem 3rem;
         background-color: $landetGrey-1;
+        opacity: 0;
+        transition: opacity $transition;
+        // padding: 1rem
+        // display: none;
+
+        &:hover{
+            opacity: 1;
+        }
     }
+
+    // &__UserIcon:hover+.Header__UserWrapper{
+    //     display: flex;
+    // }
 
     &__UserLabel{
         @include label;
         font-weight: 900;
         font-size: 1rem;
         text-transform: uppercase;
-        position: absolute;
-        bottom: -1.2rem;
-        right: 0;
+        // position: absolute;
+        // bottom: -1.2rem;
+        // right: 0;
+        display: block;
     }
 
     &__UserName{
         position: relative;
         @include h3;
+        display: block;
+        margin-bottom: $medium;
+        
         // font-size: 2rem;
     }
+
+    &__UserLogout{
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $colorWhite;
+        background-color: $landetRed-2;
+
+        i{
+            font-size: 2.5rem;
+            margin-left: 1rem;
+        }
+    }
+
 }
